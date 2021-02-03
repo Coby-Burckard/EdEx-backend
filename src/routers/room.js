@@ -4,11 +4,6 @@ const auth = require("../middleware/auth")
 
 const router = express.Router()
 
-router.get("/rooms", async (req, res) => {
-  const rooms = await Room.findAll()
-  res.send(rooms)
-})
-
 router.post("/room", auth, async (req, res) => {
   try {
     const room = await Room.create({
