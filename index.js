@@ -5,8 +5,10 @@ if (process.env.NODE_ENV !== "production") {
   require("dotenv").config()
 }
 
-//setting up db
+//modules which require .env file
 require("./src/db/db")
+const teacherRouter = require("./src/routers/teacher")
+const wakeRouter = require("./src/routers/wakeup")
 
 //setting up express
 const app = express()
@@ -14,6 +16,9 @@ const PORT = process.env.PORT || 3000
 
 //configuring app
 app.use(express.json())
+
+//routers
+app.use(teacherRouter)
 
 //starting server
 app.listen(PORT, () => {

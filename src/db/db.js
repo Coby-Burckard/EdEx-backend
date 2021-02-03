@@ -36,6 +36,6 @@ const syncDB = async () => {
 }
 
 validateConnection()
-syncDB()
+// syncDB()
 
 module.exports = { sequelize, Teacher, Room }

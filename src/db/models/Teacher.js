@@ -21,10 +21,14 @@ const createTeacher = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: true,
       set(value) {
-        this.setDataValue(
-          "jwt",
-          jwt.sign({ email: value }, process.env.API_SECRET)
-        )
+        if (value === null) {
+          this.setDataValue("jwt", null)
+        } else {
+          this.setDataValue(
+            "jwt",
+            jwt.sign({ email: value }, process.env.API_SECRET)
+          )
+        }
       },
     },
   })
