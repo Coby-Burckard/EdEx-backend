@@ -6,3 +6,5 @@ const router = express.Router()
 router.get("/wakeup", (req, res) => {
   res.status(200).send({ message: "I am awake" })
 })
+
+module.exports = router

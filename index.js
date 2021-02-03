@@ -9,6 +9,7 @@ if (process.env.NODE_ENV !== "production") {
 require("./src/db/db")
 const teacherRouter = require("./src/routers/teacher")
 const wakeRouter = require("./src/routers/wakeup")
+const roomRouter = require("./src/routers/room")
 
 //setting up express
 const app = express()
@@ -19,6 +20,8 @@ app.use(express.json())
 
 //routers
 app.use(teacherRouter)
+app.use(roomRouter)
+app.use(wakeRouter)
 
 //starting server
 app.listen(PORT, () => {

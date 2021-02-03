@@ -50,4 +50,9 @@ router.post("/teachers/logout", auth, async (req, res) => {
   }
 })
 
+router.get("/teachers/rooms", auth, async (req, res) => {
+  const { Rooms, email } = req.teacher
+  res.status(200).send({ Rooms, email })
+})
+
 module.exports = router
