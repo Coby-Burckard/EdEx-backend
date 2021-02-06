@@ -1,4 +1,5 @@
 const express = require("express")
+const cors = require("cors")
 
 console.log("node_env", process.env.NODE_ENV)
 if (process.env.NODE_ENV !== "production") {
@@ -13,10 +14,13 @@ const roomRouter = require("./src/routers/room")
 
 //setting up express
 const app = express()
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 4000
 
 //configuring app
 app.use(express.json())
+app.use(cors({
+  origin: process.env.CLIENT_URL
+}))
 
 //routers
 app.use(teacherRouter)

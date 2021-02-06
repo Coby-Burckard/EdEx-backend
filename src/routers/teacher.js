@@ -7,6 +7,7 @@ const router = express.Router()
 
 router.post("/teachers", async (req, res) => {
   try {
+    console.log("requesting teachers", req.body)
     const { email, password } = req.body
     const teacher = await Teacher.create({
       email: email,
